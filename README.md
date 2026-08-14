@@ -54,9 +54,9 @@ folder with any static server, e.g.:
 ```
 .
 ├── index.html
-├── css/
+├── CSS/
 │   └── style.css
-├── js/
+├── JAVA/
 │   └── app.js
 └── README.md
 ```
