@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daybreak — Your Day, Organized</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/stylesheet.css" />
+</head>
+<body data-period="morning" data-theme="auto">
+
+  <!-- Sun/moon arc: signature element tracking time-of-day progress -->
+  <div class="arc-wrap" aria-hidden="true">
+    <svg class="arc" viewBox="0 0 400 110" preserveAspectRatio="none">
+      <path id="arcPath" d="M 10 100 A 190 190 0 0 1 390 100" />
+    </svg>
+    <div class="arc-body" id="arcBody"></div>
+  </div>
+
+  <header class="hero">
+    <div class="hero-top">
+      <button id="themeToggle" class="icon-btn" title="Toggle light / dark mode" aria-label="Toggle theme">
+        <span id="themeIcon">◐</span>
+      </button>
+    </div>
+
+    <p class="eyebrow" id="dateLine">Loading date…</p>
+    <h1 class="greeting" id="greeting">Hello</h1>
+    <p class="clock" id="clock">--:--:--</p>
+
+    <form id="nameForm" class="name-form" autocomplete="off">
+      <label for="nameInput" class="sr-only">Your name</label>
+      <input type="text" id="nameInput" placeholder="What should we call you?" maxlength="24" />
+      <button type="submit">Save</button>
+    </form>
+  </header>
+
+  <main class="dashboard">
+
+    <!-- FOCUS TIMER -->
+    <section class="card timer-card" aria-labelledby="timerHeading">
+      <h2 id="timerHeading"><span class="card-icon">⏱</span> Focus Timer</h2>
+
+      <div class="timer-display">
+        <span id="timerMinutes">25</span><span class="colon">:</span><span id="timerSeconds">00</span>
+      </div>
+
+      <p class="timer-status" id="timerStatus">Ready when you are</p>
+
+      <div class="timer-controls">
+        <button id="startBtn" class="btn primary">Start</button>
+        <button id="pauseBtn" class="btn" disabled>Pause</button>
+        <button id="resetBtn" class="btn ghost">Reset</button>
+      </div>
+
+      <div class="timer-length">
+        <label for="lengthInput">Session length</label>
+        <div class="length-row">
+          <input type="range" id="lengthInput" min="5" max="60" step="5" value="25" />
+          <span id="lengthValue">25 min</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TO-DO LIST -->
+    <section class="card todo-card" aria-labelledby="todoHeading">
+      <h2 id="todoHeading"><span class="card-icon">✓</span> To-Do List</h2>
+
+      <form id="todoForm" class="todo-form" autocomplete="off">
+        <input type="text" id="todoInput" placeholder="Add a task…" maxlength="120" />
+        <button type="submit" class="btn primary">Add</button>
+      </form>
+
+      <p class="todo-hint" id="todoHint" role="status" aria-live="polite"></p>
+
+      <ul class="todo-list" id="todoList"></ul>
+
+      <p class="todo-empty" id="todoEmpty">Nothing on the list yet. Add your first task above.</p>
+
+      <div class="todo-footer">
+        <span id="todoCount">0 tasks</span>
+        <button id="clearDoneBtn" class="link-btn">Clear completed</button>
+      </div>
+    </section>
+
+    <!-- QUICK LINKS -->
+    <section class="card links-card" aria-labelledby="linksHeading">
+      <h2 id="linksHeading"><span class="card-icon">↗</span> Quick Links</h2>
+
+      <div class="links-grid" id="linksGrid"></div>
+
+      <form id="linkForm" class="link-form" autocomplete="off">
+        <input type="text" id="linkName" placeholder="Name" maxlength="20" />
+        <input type="url" id="linkUrl" placeholder="https://example.com" />
+        <button type="submit" class="btn primary">Add</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <p>Everything here lives only in this browser — no accounts, no servers.</p>
+  </footer>
+
+  <script src="JAVA/app.js"></script>
+</body>
+</html>
