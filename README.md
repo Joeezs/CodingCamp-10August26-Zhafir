@@ -14,8 +14,8 @@ overrides this for anyone who just wants one consistent look.
 
 ## Tech stack
 - `index.html` — structure
-- `css/style.css` — all styling (one file)
-- `js/app.js` — all behavior (one file, vanilla JS, no frameworks)
+- `CSS/style.css` — all styling (one file)
+- `JAVA/app.js` — all behavior (one file, vanilla JS, no frameworks)
 - Data storage: `localStorage` only, client-side
 
 ## Features
